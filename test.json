@@ -1,0 +1,48 @@
+{
+  "id": "cli1ei8lj005hmc0kygcd7q5a",
+  "files": [
+    { "downloadKey": "f5fe04db-c726-4f8d-8b7e-d3028c8c1c48" },
+    { "downloadKey": "f4f086d2-8f70-4065-bc1e-ca6ec5c0fece" }
+  ],
+  "sectors": [
+    {
+      "id": "cli1ei8oj0071mc0kbkfkywfc",
+      "createdAt": "2023-05-24T07:45:59.856Z",
+      "updatedAt": "2024-07-10T16:17:49.166Z",
+      "name": "B2B / SaaS",
+      "companyId": "cli1ei8lj005hmc0kygcd7q5a",
+      "primary": true
+    },
+    {
+      "id": "cli1ei93000eqmc0klyi5dkyp",
+      "createdAt": "2023-05-24T07:46:00.221Z",
+      "updatedAt": "2024-07-10T16:17:49.174Z",
+      "name": "Female Founders",
+      "companyId": "cli1ei8lj005hmc0kygcd7q5a",
+      "primary": false
+    },
+    {
+      "id": "cli1ei8qn0099mc0kdgi2ctyx",
+      "createdAt": "2023-05-24T07:45:59.962Z",
+      "updatedAt": "2024-07-10T16:17:49.162Z",
+      "name": "FinTech",
+      "companyId": "cli1ei8lj005hmc0kygcd7q5a",
+      "primary": false
+    },
+    {
+      "id": "cli1ei8vp00dzmc0kzjn5fcjw",
+      "createdAt": "2023-05-24T07:46:00.154Z",
+      "updatedAt": "2024-07-10T16:17:49.170Z",
+      "name": "DevTools",
+      "companyId": "cli1ei8lj005hmc0kygcd7q5a",
+      "primary": false
+    }
+  ],
+  "name": "Deel",
+  "logoUrl": "https://storage.googleapis.com/pulumi-public-bucket-soma-78c41ee/1b7a0d8cfa355a97726d0b538fae617f38345a56/Deel-harmonic-logo",
+  "slug": "deel",
+  "oneLiner": "hiring, payroll & compliance platform for US & global teams",
+  "valuation": "+5b",
+  "region": "US",
+  "website": "https://www.deel.com"
+}

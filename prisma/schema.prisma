@@ -1,0 +1,104 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id            String    @id @default(uuid())
+  name          String?
+  email         String    @unique
+  emailVerified DateTime?
+  image         String?
+  role          Role      @default(USER)
+  password      String    // Add this field
+  accounts      Account[]
+  sessions      Session[]
+  articles      ArticleCompany[]
+}
+
+model Account {
+  id                String   @id @default(uuid())
+  userId            String
+  provider          String
+  providerAccountId String
+  type              String
+  refresh_token     String?
+  access_token      String?
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String?
+  session_state     String?
+
+  user User @relation(fields: [userId], references: [id])
+
+  @@unique([provider, providerAccountId])
+}
+
+model Session {
+  id           String   @id @default(uuid())
+  sessionToken String   @unique
+  userId       String
+  expires      DateTime
+
+  user User @relation(fields: [userId], references: [id])
+}
+
+model Company {
+  id        String         @id @default(uuid())
+  name      String
+  logoUrl   String
+  slug      String
+  oneLiner  String
+  valuation String
+  region    String
+  website   String
+  sectors   Sector[]
+  files     File[]
+  articles  ArticleCompany[]
+}
+
+model Sector {
+  id         String   @id @default(uuid())
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+  name       String
+  primary    Boolean
+  companyId  String
+  company    Company  @relation(fields: [companyId], references: [id])
+}
+
+model File {
+  id           String   @id @default(uuid())
+  downloadKey  String
+  companyId    String
+  company      Company  @relation(fields: [companyId], references: [id])
+}
+
+model Article {
+  id        String            @id @default(uuid())
+  title     String
+  url       String
+  companies ArticleCompany[]
+}
+
+model ArticleCompany {
+  id         String   @id @default(uuid())
+  articleId  String
+  companyId  String
+  userId     String
+  article    Article  @relation(fields: [articleId], references: [id])
+  company    Company  @relation(fields: [companyId], references: [id])
+  user       User     @relation(fields: [userId], references: [id])
+
+  @@unique([articleId, companyId, userId])
+}
+
+enum Role {
+  USER
+  ADMIN
+}
